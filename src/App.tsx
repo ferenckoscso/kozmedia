@@ -12,6 +12,8 @@ import PSOSection from './sections/PSOSection';
 import FinanceSection from './sections/FinanceSection';
 import ClosingSection from './sections/ClosingSection';
 import ProgressBar from './components/ProgressBar';
+import LanguageToggle from './components/LanguageToggle';
+import { LanguageProvider } from './lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,19 +45,22 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark text-foreground overflow-x-hidden">
-      <ProgressBar />
-      <HeroSection />
-      <CrisisSection />
-      <ThreeChangesSection />
-      <TrapSection />
-      <FourPillarsSection />
-      <AISection />
-      <ArchiveSection />
-      <PSOSection />
-      <FinanceSection />
-      <ClosingSection />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-dark text-foreground overflow-x-hidden">
+        <ProgressBar />
+        <LanguageToggle />
+        <HeroSection />
+        <CrisisSection />
+        <ThreeChangesSection />
+        <TrapSection />
+        <FourPillarsSection />
+        <AISection />
+        <ArchiveSection />
+        <PSOSection />
+        <FinanceSection />
+        <ClosingSection />
+      </div>
+    </LanguageProvider>
   );
 }
 

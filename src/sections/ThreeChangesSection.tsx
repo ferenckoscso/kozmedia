@@ -2,39 +2,86 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Smartphone, Bot, Radio } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const changes = [
-  {
-    icon: Smartphone,
-    title: 'A platformok uralma',
-    description:
-      'A vezető közösségimédia-platformok tulajdonosai ma nyíltan, dokumentáltan dolgoznak azon, hogy a hagyományos, professzionális újságírást felváltsák egy platform-vezérelt nyilvánossággal. Amikor 2025 elején az egyik legnagyobb közösségimédia-vállalat megszüntette a független ténykereső programját, és azt "közösségi jegyzetek" rendszerére cserélte, a nyilvánosság egyik legnagyobb szereplője lemondott arról, hogy különbséget tegyen tény és állítás között.',
-    stat: '2025. jan.',
-    statLabel: 'a Meta megszünteti a független ténykeresést',
+const content = {
+  hu: {
+    label: 'Három alapvető változás',
+    heading: 'Amitől minden korábbi stratégia elavulttá vált.',
+    intro:
+      'A médiaipar az elmúlt öt évben átesett egy olyan technológiai paradigmaváltáson, amely minden korábbi stratégiát elavulttá tesz.',
+    more: 'Kattints a részletekért',
+    less: 'Kattints újra a becsukáshoz',
+    changes: [
+      {
+        icon: Smartphone,
+        title: 'A platformok uralma',
+        description:
+          'A vezető közösségimédia-platformok tulajdonosai ma nyíltan, dokumentáltan dolgoznak azon, hogy a hagyományos, professzionális újságírást felváltsák egy platform-vezérelt nyilvánossággal. Amikor 2025 elején az egyik legnagyobb közösségimédia-vállalat megszüntette a független ténykereső programját, és azt "közösségi jegyzetek" rendszerére cserélte, a nyilvánosság egyik legnagyobb szereplője lemondott arról, hogy különbséget tegyen tény és állítás között.',
+        stat: '2025. jan.',
+        statLabel: 'a Meta megszünteti a független ténykeresést',
+      },
+      {
+        icon: Bot,
+        title: 'A szintetikus tartalom kora',
+        description:
+          'A generatív mesterséges intelligencia ma már havonta több milliárd képet és videót állít elő — olcsón, tömegesen, és egyre nehezebben megkülönböztethetően a valóditól. A mérések szerint a frissen létrehozott weboldalak több mint 70%-a már tartalmaz valamennyi AI-generált tartalmat, és egyes előrejelzések szerint az online tartalom akár 90%-a is szintetikus lehet a következő időszakban.',
+        stat: '70%+',
+        statLabel: 'új weboldal tartalmaz AI-generált tartalmat',
+      },
+      {
+        icon: Radio,
+        title: 'A hírfogyasztási szokások átalakulása',
+        description:
+          'A különböző nemzedékek ma már teljesen eltérő módon tájékozódnak. Egy húszéves jó eséllyel soha életében nem kapcsol be lineáris tévéadást — ő a közösségi médiából, rövid videókból, és egyre inkább egy mesterségesintelligencia-alapú asszisztenstől tájékozódik. Ez nem ízléskülönbség: három egymás mellett élő nemzedék három különböző információs univerzumban mozog.',
+        stat: '25 alatt',
+        statLabel: 'a huszonöt év alattiak jelentős része már hetente chatbottól kér híreket',
+      },
+    ],
   },
-  {
-    icon: Bot,
-    title: 'A szintetikus tartalom kora',
-    description:
-      'A generatív mesterséges intelligencia ma már havonta több milliárd képet és videót állít elő — olcsón, tömegesen, és egyre nehezebben megkülönböztethetően a valóditól. A mérések szerint a frissen létrehozott weboldalak több mint 70%-a már tartalmaz valamennyi AI-generált tartalmat, és egyes előrejelzések szerint az online tartalom akár 90%-a is szintetikus lehet a következő időszakban.',
-    stat: '70%+',
-    statLabel: 'új weboldal tartalmaz AI-generált tartalmat',
+  en: {
+    label: 'Three fundamental changes',
+    heading: 'What made every earlier strategy obsolete.',
+    intro:
+      'Over the past five years, the media industry has gone through a technological paradigm shift that renders every earlier strategy obsolete.',
+    more: 'Click for details',
+    less: 'Click again to close',
+    changes: [
+      {
+        icon: Smartphone,
+        title: 'The platforms\' takeover',
+        description:
+          'The owners of the leading social media platforms now work openly, and on the record, to replace traditional, professional journalism with a platform-driven public square. When one of the largest social media companies discontinued its independent fact-checking program in early 2025 and replaced it with a "community notes" system, one of the biggest players in the public sphere gave up on distinguishing fact from claim.',
+        stat: 'Jan. 2025',
+        statLabel: 'Meta discontinues independent fact-checking',
+      },
+      {
+        icon: Bot,
+        title: 'The age of synthetic content',
+        description:
+          'Generative AI now produces several billion images and videos every month — cheaply, at scale, and increasingly hard to tell apart from the real thing. Measurements show that more than 70% of newly created websites already contain some AI-generated content, and some forecasts put the share of synthetic online content as high as 90% in the coming period.',
+        stat: '70%+',
+        statLabel: 'of new websites contain AI-generated content',
+      },
+      {
+        icon: Radio,
+        title: 'The shift in news consumption habits',
+        description:
+          "Different generations now get their information in entirely different ways. A twenty-year-old will quite possibly never once tune into linear TV in their life — they get their news from social media, short-form video, and increasingly from an AI-based assistant. This isn't a matter of taste: three generations living side by side move through three different information universes.",
+        stat: 'Under 25',
+        statLabel: 'a significant share already ask a chatbot for news weekly',
+      },
+    ],
   },
-  {
-    icon: Radio,
-    title: 'A hírfogyasztási szokások átalakulása',
-    description:
-      'A különböző nemzedékek ma már teljesen eltérő módon tájékozódnak. Egy húszéves jó eséllyel soha életében nem kapcsol be lineáris tévéadást — ő a közösségi médiából, rövid videókból, és egyre inkább egy mesterségesintelligencia-alapú asszisztenstől tájékozódik. Ez nem ízléskülönbség: három egymás mellett élő nemzedék három különböző információs univerzumban mozog.',
-    stat: '25 alatt',
-    statLabel: 'a huszonöt év alattiak jelentős része már hetente chatbottól kér híreket',
-  },
-];
+};
 
 export default function ThreeChangesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const { language } = useLanguage();
+  const t = content[language];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,20 +113,20 @@ export default function ThreeChangesSection() {
       <div className="max-w-6xl mx-auto">
         {/* Section label */}
         <div className="mb-4">
-          <span className="text-xs tracking-[0.3em] uppercase text-gold">Három alapvető változás</span>
+          <span className="text-xs tracking-[0.3em] uppercase text-gold">{t.label}</span>
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance max-w-4xl">
-          Amitől minden korábbi stratégia elavulttá vált.
+          {t.heading}
         </h2>
 
         <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-          A médiaipar az elmúlt öt évben átesett egy olyan technológiai paradigmaváltáson, amely minden korábbi stratégiát elavulttá tesz.
+          {t.intro}
         </p>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {changes.map((change, index) => (
+          {t.changes.map((change, index) => (
             <div
               key={index}
               className="change-card group cursor-pointer"
@@ -113,7 +160,7 @@ export default function ThreeChangesSection() {
                 </p>
 
                 <div className="mt-4 text-xs text-gold uppercase tracking-wider">
-                  {activeIndex === index ? 'Kattints újra a becsukáshoz' : 'Kattints a részletekért'}
+                  {activeIndex === index ? t.less : t.more}
                 </div>
               </div>
             </div>

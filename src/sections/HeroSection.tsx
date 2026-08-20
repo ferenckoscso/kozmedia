@@ -2,10 +2,32 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const content = {
+  hu: {
+    tag: 'Manifesztum 2026',
+    titleLine1: 'Merjünk nagyot',
+    titleLine2: 'álmodni!',
+    subtitle:
+      'A magyar közmédia stratégiai újjáépítésének szükségességéről, lehetőségeiről és egy jövőálló közszolgálati médiamodell vázlatáról.',
+    scroll: 'Görgess tovább',
+  },
+  en: {
+    tag: 'Manifesto 2026',
+    titleLine1: 'Dare to dream',
+    titleLine2: 'big!',
+    subtitle:
+      'On the necessity and possibilities of a strategic rebuild of Hungarian public media, and a sketch of a future-proof public service model.',
+    scroll: 'Scroll down',
+  },
+};
+
 export default function HeroSection() {
+  const { language } = useLanguage();
+  const t = content[language];
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -64,30 +86,29 @@ export default function HeroSection() {
       <div className="relative z-10 text-center section-padding max-w-5xl mx-auto">
         <div className="mb-6">
           <span className="inline-block px-4 py-2 text-xs tracking-[0.3em] uppercase text-gold border border-gold/30 rounded-full">
-            Manifesztum 2026
+            {t.tag}
           </span>
         </div>
         <h1
           ref={titleRef}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-balance opacity-0"
         >
-          <span className="text-foreground">Merjünk nagyot</span>
+          <span className="text-foreground">{t.titleLine1}</span>
           <br />
-          <span className="gold-gradient-text">álmodni!</span>
+          <span className="gold-gradient-text">{t.titleLine2}</span>
         </h1>
         <p
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed opacity-0"
         >
-          A magyar közmédia stratégiai újjáépítésének szükségességéről, lehetőségeiről és
-          egy jövőálló közszolgálati médiamodell vázlatáról.
+          {t.subtitle}
         </p>
         <div ref={ctaRef} className="opacity-0">
           <a
             href="#crisis"
             className="inline-flex flex-col items-center gap-2 text-sm text-muted-foreground hover:text-gold transition-colors duration-300"
           >
-            <span className="tracking-widest uppercase">Görgess tovább</span>
+            <span className="tracking-widest uppercase">{t.scroll}</span>
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </a>
         </div>

@@ -2,67 +2,136 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Zap, Shield, Eye, Database, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const pillars = [
-  {
-    icon: Zap,
-    title: 'Hatékonyság',
-    subtitle: 'Agilis, adatvezérelt működés',
-    description:
-      'A közmédia az EU-ban a legbürokratikusabb felépítésű közszolgálati szervezetek közé tartozik. A szervezeti átalakítás a tartalomstruktúra átalakításával kezdődik. Nem önmagában a leépítés vagy a centralizáció a cél, hanem a hatékonyság növelése.',
-    points: [
-      'A bürokratikus akadályok lebontása',
-      'Automatizálás következetes alkalmazása',
-      'Az archívum teljes feldolgozása és a tudásbázis kiépítése',
-      'A hibázás lehetőségének fenntartása — és az abból való tanulás',
+const content = {
+  hu: {
+    label: 'A megoldás',
+    heading: 'Négy pillér, egy cél.',
+    intro: 'A jövőálló közmédia nem a múlt restaurációja, hanem a jelen kihívásaira adott válasz.',
+    pillars: [
+      {
+        icon: Zap,
+        title: 'Hatékonyság',
+        subtitle: 'Agilis, adatvezérelt működés',
+        description:
+          'A közmédia az EU-ban a legbürokratikusabb felépítésű közszolgálati szervezetek közé tartozik. A szervezeti átalakítás a tartalomstruktúra átalakításával kezdődik. Nem önmagában a leépítés vagy a centralizáció a cél, hanem a hatékonyság növelése.',
+        points: [
+          'A bürokratikus akadályok lebontása',
+          'Automatizálás következetes alkalmazása',
+          'Az archívum teljes feldolgozása és a tudásbázis kiépítése',
+          'A hibázás lehetőségének fenntartása — és az abból való tanulás',
+        ],
+      },
+      {
+        icon: Shield,
+        title: 'Hitelesség',
+        subtitle: 'Kriptográfiai tartalom-hitelesítés',
+        description:
+          'A hitelesség a közmédia legfontosabb értéke. C2PA szabvány szerinti hitelesítéssel a közmédia számára megőrizhető a megbízhatóság. A klasszikus nézettségmérés helyett cross-platform elérést és társadalmi hasznosságot mérő rendszer szükséges.',
+        points: [
+          'C2PA szabvány szerinti hitelesítés bevezetése',
+          'Transzparens szerkesztői döntéshozatal',
+          'Strukturális garanciák az intézményi függetlenség védelmére',
+          'A szerkesztői függetlenség abszolút prioritása',
+        ],
+      },
+      {
+        icon: Eye,
+        title: 'Transzparencia',
+        subtitle: 'Radikális nyitottság minden szinten',
+        description:
+          'A jövőálló közmédia transzparenciájának fokozása nemcsak közérdekű adatként kezeli a vezetői értekezletek jegyzőkönyveit, a produkciós és szállítási szerződéseket, hanem az ajánlóalgoritmusok logikáját is alapértelmezetten nyilvánossá teszi.',
+        points: [
+          'Vezetői értekezletek jegyzőkönyvei nyilvánosak',
+          'Produkciós és szállítási szerződések nyilvánossága',
+          'Ajánlóalgoritmusok logikájának transzparenciája',
+          'Nyilvános, szakmai egyeztetésen alapuló mutatórendszer',
+        ],
+      },
+      {
+        icon: Database,
+        title: 'Közadat',
+        subtitle: 'Az archívum, mint nemzeti közvagyon',
+        description:
+          'Az archívum a közadat központi tartópillére. A teljes audiovizuális örökség metaadatolása, leiratozása és feltárása nemcsak a közmédia belső munkáját segíti, hanem a magyar mesterséges intelligencia szuverenitás és egy jövőbeli tudásasszisztens technológiai alapja is.',
+        points: [
+          'Teljes audiovizuális örökség metaadatolása AI-támogatással',
+          'Nemcsak kutatók és alkotók, hanem minden állampolgár számára hozzáférhető',
+          'A magyar AI-szuverenitás technológiai alapja',
+          'Tudásasszisztens platform építése az archívumra',
+        ],
+      },
     ],
   },
-  {
-    icon: Shield,
-    title: 'Hitelesség',
-    subtitle: 'Kriptográfiai tartalom-hitelesítés',
-    description:
-      'A hitelesség a közmédia legfontosabb értéke. C2PA szabvány szerinti hitelesítéssel a közmédia számára megőrizhető a megbízhatóság. A klasszikus nézettségmérés helyett cross-platform elérést és társadalmi hasznosságot mérő rendszer szükséges.',
-    points: [
-      'C2PA szabvány szerinti hitelesítés bevezetése',
-      'Transzparens szerkesztői döntéshozatal',
-      'Strukturális garanciák az intézményi függetlenség védelmére',
-      'A szerkesztői függetlenség abszolút prioritása',
+  en: {
+    label: 'The solution',
+    heading: 'Four pillars, one goal.',
+    intro: "Future-proof public media isn't a restoration of the past, but an answer to the present's challenges.",
+    pillars: [
+      {
+        icon: Zap,
+        title: 'Efficiency',
+        subtitle: 'Agile, data-driven operation',
+        description:
+          "Public media is among the most bureaucratic public-service organisations in the EU. Organisational transformation starts with restructuring the content structure. The goal isn't downsizing or centralisation for their own sake, but higher efficiency.",
+        points: [
+          'Dismantling bureaucratic obstacles',
+          'Consistent application of automation',
+          'Full processing of the archive and building a knowledge base',
+          'Preserving room to make mistakes — and to learn from them',
+        ],
+      },
+      {
+        icon: Shield,
+        title: 'Credibility',
+        subtitle: 'Cryptographic content authentication',
+        description:
+          "Credibility is public media's single most important asset. C2PA-standard authentication lets public media preserve its trustworthiness. Instead of classic ratings, a system measuring cross-platform reach and social value is needed.",
+        points: [
+          'Adopting C2PA-standard content authentication',
+          'Transparent editorial decision-making',
+          'Structural guarantees protecting institutional independence',
+          'Editorial independence as an absolute priority',
+        ],
+      },
+      {
+        icon: Eye,
+        title: 'Transparency',
+        subtitle: 'Radical openness at every level',
+        description:
+          "Future-proof public media doesn't just treat leadership meeting minutes and production/procurement contracts as public-interest data — it makes the logic of its recommendation algorithms public by default too.",
+        points: [
+          'Leadership meeting minutes made public',
+          'Production and procurement contracts made public',
+          'Transparency of recommendation-algorithm logic',
+          'A public indicator system built on professional consensus',
+        ],
+      },
+      {
+        icon: Database,
+        title: 'Public data',
+        subtitle: 'The archive as national common wealth',
+        description:
+          "The archive is the central pillar of public data. Fully tagging, transcribing and exploring the entire audiovisual heritage doesn't just help public media's own work — it's also the technological foundation of Hungarian AI sovereignty and a future knowledge assistant.",
+        points: [
+          'AI-assisted tagging of the entire audiovisual heritage',
+          'Accessible not just to researchers and creators, but to every citizen',
+          'The technological foundation of Hungarian AI sovereignty',
+          'Building a knowledge-assistant platform on top of the archive',
+        ],
+      },
     ],
   },
-  {
-    icon: Eye,
-    title: 'Transzparencia',
-    subtitle: 'Radikális nyitottság minden szinten',
-    description:
-      'A jövőálló közmédia transzparenciájának fokozása nemcsak közérdekű adatként kezeli a vezetői értekezletek jegyzőkönyveit, a produkciós és szállítási szerződéseket, hanem az ajánlóalgoritmusok logikáját is alapértelmezetten nyilvánossá teszi.',
-    points: [
-      'Vezetői értekezletek jegyzőkönyvei nyilvánosak',
-      'Produkciós és szállítási szerződések nyilvánossága',
-      'Ajánlóalgoritmusok logikájának transzparenciája',
-      'Nyilvános, szakmai egyeztetésen alapuló mutatórendszer',
-    ],
-  },
-  {
-    icon: Database,
-    title: 'Közadat',
-    subtitle: 'Az archívum, mint nemzeti közvagyon',
-    description:
-      'Az archívum a közadat központi tartópillére. A teljes audiovizuális örökség metaadatolása, leiratozása és feltárása nemcsak a közmédia belső munkáját segíti, hanem a magyar mesterséges intelligencia szuverenitás és egy jövőbeli tudásasszisztens technológiai alapja is.',
-    points: [
-      'Teljes audiovizuális örökség metaadatolása AI-támogatással',
-      'Nemcsak kutatók és alkotók, hanem minden állampolgár számára hozzáférhető',
-      'A magyar AI-szuverenitás technológiai alapja',
-      'Tudásasszisztens platform építése az archívumra',
-    ],
-  },
-];
+};
 
 export default function FourPillarsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { language } = useLanguage();
+  const t = content[language];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -93,19 +162,19 @@ export default function FourPillarsSection() {
     >
       <div className="max-w-5xl mx-auto">
         <div className="mb-4 text-center">
-          <span className="text-xs tracking-[0.3em] uppercase text-gold">A megoldás</span>
+          <span className="text-xs tracking-[0.3em] uppercase text-gold">{t.label}</span>
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance text-center max-w-4xl mx-auto">
-          Négy pillér, egy cél.
+          {t.heading}
         </h2>
 
         <p className="text-lg text-muted-foreground mb-16 text-center max-w-2xl mx-auto">
-          A jövőálló közmédia nem a múlt restaurációja, hanem a jelen kihívásaira adott válasz.
+          {t.intro}
         </p>
 
         <div className="space-y-4">
-          {pillars.map((pillar, index) => (
+          {t.pillars.map((pillar, index) => (
             <div key={index} className="pillar-card">
               <div
                 className={`glass-card border transition-all duration-500 overflow-hidden ${

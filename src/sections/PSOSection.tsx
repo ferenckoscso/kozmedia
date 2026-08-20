@@ -2,45 +2,96 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Layers, Smartphone, Globe, Cpu, Radio as RadioIcon } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const psoLayers = [
-  {
-    icon: Globe,
-    title: 'Alapinfrastruktúra',
-    description: 'Megbízható adatátviteli rendszerek, kiszolgálók, szerverek — mint egy modern háztartás villamos hálózata.',
-    color: '#6B7280',
+const content = {
+  hu: {
+    label: 'Rendszerarchitektúra',
+    heading: 'A Public Service OS.',
+    intro: 'Olyan rendszer, amely egyetlen, integrált platformként működteti a közszolgálati média összes funkcióját.',
+    note:
+      'Ez a struktúra lehetővé teszi, hogy a felhasználó az archívum alapján saját, személyre szabott „csatornát" építhessen — mind videó-, mind audiótartalomból — az interaktív streaming platformon keresztül.',
+    layers: [
+      {
+        icon: Globe,
+        title: 'Alapinfrastruktúra',
+        description: 'Megbízható adatátviteli rendszerek, kiszolgálók, szerverek — mint egy modern háztartás villamos hálózata.',
+        color: '#6B7280',
+      },
+      {
+        icon: Cpu,
+        title: 'Szolgáltatási réteg',
+        description: 'A rendszerszintű szoftvereszközök — az operációs rendszer, ami összekapcsolja az alkalmazásokat.',
+        color: '#C9A96E',
+      },
+      {
+        icon: Smartphone,
+        title: 'Alkalmazási réteg',
+        description: 'Streaming, szöveges tartalmak, digitális archívum, közösségi média — a felhasználói felületek.',
+        color: '#C9A96E',
+      },
+      {
+        icon: RadioIcon,
+        title: 'Tartalmi réteg',
+        description: 'Hírek, dokumentumfilmek, szórakoztatás, sport, kultúra, oktatás — maga a tartalom.',
+        color: '#C9A96E',
+      },
+      {
+        icon: Layers,
+        title: 'Közösségi réteg',
+        description: 'Párbeszéd és visszacsatolás a közönséggel — a transzparencia és az interakció tere.',
+        color: '#6B7280',
+      },
+    ],
   },
-  {
-    icon: Cpu,
-    title: 'Szolgáltatási réteg',
-    description: 'A rendszerszintű szoftvereszközök — az operációs rendszer, ami összekapcsolja az alkalmazásokat.',
-    color: '#C9A96E',
+  en: {
+    label: 'System architecture',
+    heading: 'The Public Service OS.',
+    intro: 'A system that runs every function of public service media as a single, integrated platform.',
+    note:
+      "This structure lets users build their own personalised \"channel\" from the archive — combining both video and audio content — through the interactive streaming platform.",
+    layers: [
+      {
+        icon: Globe,
+        title: 'Base infrastructure',
+        description: 'Reliable data-transmission systems, hosts, servers — like a modern household\'s electrical grid.',
+        color: '#6B7280',
+      },
+      {
+        icon: Cpu,
+        title: 'Service layer',
+        description: 'System-level software tools — the operating system that connects the applications.',
+        color: '#C9A96E',
+      },
+      {
+        icon: Smartphone,
+        title: 'Application layer',
+        description: 'Streaming, text content, digital archive, social media — the user-facing surfaces.',
+        color: '#C9A96E',
+      },
+      {
+        icon: RadioIcon,
+        title: 'Content layer',
+        description: 'News, documentaries, entertainment, sport, culture, education — the content itself.',
+        color: '#C9A96E',
+      },
+      {
+        icon: Layers,
+        title: 'Community layer',
+        description: 'Dialogue and feedback with the audience — the space for transparency and interaction.',
+        color: '#6B7280',
+      },
+    ],
   },
-  {
-    icon: Smartphone,
-    title: 'Alkalmazási réteg',
-    description: 'Streaming, szöveges tartalmak, digitális archívum, közösségi média — a felhasználói felületek.',
-    color: '#C9A96E',
-  },
-  {
-    icon: RadioIcon,
-    title: 'Tartalmi réteg',
-    description: 'Hírek, dokumentumfilmek, szórakoztatás, sport, kultúra, oktatás — maga a tartalom.',
-    color: '#C9A96E',
-  },
-  {
-    icon: Layers,
-    title: 'Közösségi réteg',
-    description: 'Párbeszéd és visszacsatolás a közönséggel — a transzparencia és az interakció tere.',
-    color: '#6B7280',
-  },
-];
+};
 
 export default function PSOSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeLayer, setActiveLayer] = useState<number | null>(null);
+  const { language } = useLanguage();
+  const t = content[language];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -68,15 +119,15 @@ export default function PSOSection() {
     <section ref={sectionRef} className="relative py-24 md:py-32 section-padding">
       <div className="max-w-5xl mx-auto">
         <div className="mb-4">
-          <span className="text-xs tracking-[0.3em] uppercase text-gold">Rendszerarchitektúra</span>
+          <span className="text-xs tracking-[0.3em] uppercase text-gold">{t.label}</span>
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance max-w-4xl">
-          A Public Service OS.
+          {t.heading}
         </h2>
 
         <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-          Olyan rendszer, amely egyetlen, integrált platformként működteti a közszolgálati média összes funkcióját.
+          {t.intro}
         </p>
 
         {/* OS Stack Visualization */}
@@ -85,7 +136,7 @@ export default function PSOSection() {
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
 
           <div className="space-y-3">
-            {psoLayers.map((layer, index) => (
+            {t.layers.map((layer, index) => (
               <div
                 key={index}
                 className="pso-layer"
@@ -100,7 +151,7 @@ export default function PSOSection() {
                   }`}
                   style={{
                     marginLeft: `${index * 12}px`,
-                    marginRight: `${(psoLayers.length - 1 - index) * 12}px`,
+                    marginRight: `${(t.layers.length - 1 - index) * 12}px`,
                   }}
                 >
                   <div className="flex items-center gap-4">
@@ -135,8 +186,7 @@ export default function PSOSection() {
         {/* Bottom note */}
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            Ez a struktúra lehetővé teszi, hogy a felhasználó az archívum alapján saját, személyre szabott „csatornát"
-            építhessen — mind videó-, mind audiótartalomból — az interaktív streaming platformon keresztül.
+            {t.note}
           </p>
         </div>
       </div>

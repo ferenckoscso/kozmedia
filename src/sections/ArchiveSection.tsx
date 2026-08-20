@@ -2,34 +2,71 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BookOpen, Brain, Landmark, Users } from 'lucide-react';
+import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const layers = [
-  {
-    icon: BookOpen,
-    title: 'Digitális archívum',
-    description: 'A teljes audiovizuális örökség metaadatolása, leiratozása és feltárása AI-támogatással.',
+const content = {
+  hu: {
+    label: 'Közadat',
+    heading: 'Az archívum nem raktár — alap.',
+    intro: 'A közmédia archívuma a közadat központi tartópillére. Metaadatolás, leiratozás, AI-támogatás — ez a jövő alapja.',
+    layers: [
+      {
+        icon: BookOpen,
+        title: 'Digitális archívum',
+        description: 'A teljes audiovizuális örökség metaadatolása, leiratozása és feltárása AI-támogatással.',
+      },
+      {
+        icon: Brain,
+        title: 'Tudásasszisztens',
+        description: 'Magyar nyelvű, forrásmegjelölt AI-asszisztens, amely az archívumra épülve válaszol a felhasználók kérdéseire.',
+      },
+      {
+        icon: Landmark,
+        title: 'Nemzeti tudásvagyon',
+        description: 'Nemcsak kutatók és alkotók, hanem minden állampolgár számára hozzáférhető közadat.',
+      },
+      {
+        icon: Users,
+        title: 'AI-szuverenitás',
+        description: 'A magyar mesterséges intelligencia szuverenitás technológiai alapja — nem külföldi platformokra támaszkodunk.',
+      },
+    ],
   },
-  {
-    icon: Brain,
-    title: 'Tudásasszisztens',
-    description: 'Magyar nyelvű, forrásmegjelölt AI-asszisztens, amely az archívumra épülve válaszol a felhasználók kérdéseire.',
+  en: {
+    label: 'Public data',
+    heading: "The archive isn't storage — it's the foundation.",
+    intro: "Public media's archive is the central pillar of public data. Tagging, transcription, AI support — that's the foundation of the future.",
+    layers: [
+      {
+        icon: BookOpen,
+        title: 'Digital archive',
+        description: 'AI-assisted tagging, transcription and exploration of the entire audiovisual heritage.',
+      },
+      {
+        icon: Brain,
+        title: 'Knowledge assistant',
+        description: 'A Hungarian-language, source-citing AI assistant that answers user questions by drawing on the archive.',
+      },
+      {
+        icon: Landmark,
+        title: 'National knowledge asset',
+        description: 'Public data accessible not just to researchers and creators, but to every citizen.',
+      },
+      {
+        icon: Users,
+        title: 'AI sovereignty',
+        description: "The technological foundation of Hungarian AI sovereignty — not reliant on foreign platforms.",
+      },
+    ],
   },
-  {
-    icon: Landmark,
-    title: 'Nemzeti tudásvagyon',
-    description: 'Nemcsak kutatók és alkotók, hanem minden állampolgár számára hozzáférhető közadat.',
-  },
-  {
-    icon: Users,
-    title: 'AI-szuverenitás',
-    description: 'A magyar mesterséges intelligencia szuverenitás technológiai alapja — nem külföldi platformokra támaszkodunk.',
-  },
-];
+};
 
 export default function ArchiveSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
+  const t = content[language];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -60,15 +97,15 @@ export default function ArchiveSection() {
     >
       <div className="max-w-5xl mx-auto">
         <div className="mb-4">
-          <span className="text-xs tracking-[0.3em] uppercase text-gold">Közadat</span>
+          <span className="text-xs tracking-[0.3em] uppercase text-gold">{t.label}</span>
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance max-w-4xl">
-          Az archívum nem raktár — alap.
+          {t.heading}
         </h2>
 
         <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-          A közmédia archívuma a közadat központi tartópillére. Metaadatolás, leiratozás, AI-támogatás — ez a jövő alapja.
+          {t.intro}
         </p>
 
         <div className="relative">
@@ -76,7 +113,7 @@ export default function ArchiveSection() {
           <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gold/50 via-gold/20 to-transparent hidden md:block" />
 
           <div className="space-y-8">
-            {layers.map((layer, index) => (
+            {t.layers.map((layer, index) => (
               <div key={index} className="archive-layer relative pl-0 md:pl-16">
                 {/* Dot on the line */}
                 <div className="hidden md:flex absolute left-4 top-6 w-5 h-5 rounded-full bg-gold/20 border-2 border-gold items-center justify-center">
