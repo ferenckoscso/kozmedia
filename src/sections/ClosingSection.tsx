@@ -6,6 +6,13 @@ import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// TODO: the English Medium essay doesn't exist yet -- once
+// "Merjünk nagyot álmodni?" is translated and published, replace
+// content.en.essayUrl below with its real URL. Until then the EN page
+// intentionally links to the Hungarian original rather than 404-ing.
+const HU_ESSAY_URL =
+  'https://medium.com/@mediaengineering/merj%C3%BCnk-nagyot-%C3%A1lmodni-30a047442c1c?sharedUserId=mediaengineering';
+
 const content = {
   hu: {
     tag: 'Cselekvésre felhívás',
@@ -14,6 +21,7 @@ const content = {
     body: 'A jövőálló közmédia nem egy önmagában létező, mindenható entitás, hanem egy szervezet, amely csak akkor válhat azzá, ha a társadalom és az intézmények is készek a vele való együttműködésre.',
     quote: '„A világ elmozdult, és gyorsabban mozog, mint valaha. A kérdés csak az, hogy a közmédia vele mozdul-e."',
     essayCta: 'Olvasd el a teljes esszét',
+    essayUrl: HU_ESSAY_URL,
     topCta: 'Ugrás az elejére',
     signature: 'Koscsó Ferenc — Koscso Media Engineering Kft., 2026',
   },
@@ -24,6 +32,7 @@ const content = {
     body: "Future-proof public media isn't an all-powerful entity that exists on its own — it's an organisation that can only become one if society and its institutions are also ready to work with it.",
     quote: '"The world has shifted, and it\'s moving faster than ever. The only question is whether public media moves with it."',
     essayCta: 'Read the full essay',
+    essayUrl: HU_ESSAY_URL, // TODO: swap for the English essay once it exists
     topCta: 'Back to top',
     signature: 'Ferenc Koscsó — Koscso Media Engineering Kft., 2026',
   },
@@ -84,7 +93,7 @@ export default function ClosingSection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://medium.com/@mediaengineering/merj%C3%BCnk-nagyot-%C3%A1lmodni-30a047442c1c?sharedUserId=mediaengineering"
+            href={t.essayUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-dark font-bold rounded-lg hover:bg-gold-light transition-colors duration-300"
