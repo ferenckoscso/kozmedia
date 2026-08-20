@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 25% 5%;
+    --foreground: 40 20% 93%;
+    --card: 225 18% 11%;
+    --card-foreground: 40 20% 93%;
+    --popover: 225 18% 11%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 38 40% 61%;
+    --primary-foreground: 222 25% 5%;
+    --secondary: 225 18% 11%;
+    --secondary-foreground: 40 20% 93%;
+    --muted: 225 10% 20%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 38 40% 61%;
+    --accent-foreground: 222 25% 5%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 20% 93%;
+    --border: 225 10% 20%;
+    --input: 225 10% 20%;
+    --ring: 38 40% 61%;
+    --radius: 0.5rem;
+    --sidebar-background: 222 25% 5%;
+    --sidebar-foreground: 40 20% 93%;
+    --sidebar-primary: 38 40% 61%;
+    --sidebar-primary-foreground: 222 25% 5%;
+    --sidebar-accent: 225 18% 11%;
+    --sidebar-accent-foreground: 40 20% 93%;
+    --sidebar-border: 225 10% 20%;
+    --sidebar-ring: 38 40% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-dark text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Liter', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .gold-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #C9A96E 0%, #D4BC8B 50%, #A68A52 100%);
+  }
+  
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 xl:px-32;
+  }
+  
+  .glass-card {
+    @apply bg-dark-card/80 backdrop-blur-md border border-dark-border/50;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2E3A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A96E;
+}
