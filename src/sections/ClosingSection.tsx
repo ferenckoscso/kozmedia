@@ -6,12 +6,9 @@ import { useLanguage } from '../lib/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// TODO: the English Medium essay doesn't exist yet -- once
-// "Merjünk nagyot álmodni?" is translated and published, replace
-// content.en.essayUrl below with its real URL. Until then the EN page
-// intentionally links to the Hungarian original rather than 404-ing.
 const HU_ESSAY_URL =
   'https://medium.com/@mediaengineering/merj%C3%BCnk-nagyot-%C3%A1lmodni-30a047442c1c?sharedUserId=mediaengineering';
+const EN_ESSAY_URL = 'https://mediaengineering.medium.com/lets-dare-to-dream-big-5ef59f76d537';
 
 const content = {
   hu: {
@@ -32,7 +29,7 @@ const content = {
     body: "Future-proof public media isn't an all-powerful entity that exists on its own — it's an organisation that can only become one if society and its institutions are also ready to work with it.",
     quote: '"The world has shifted, and it\'s moving faster than ever. The only question is whether public media moves with it."',
     essayCta: 'Read the full essay',
-    essayUrl: HU_ESSAY_URL, // TODO: swap for the English essay once it exists
+    essayUrl: EN_ESSAY_URL,
     topCta: 'Back to top',
     signature: 'Ferenc Koscsó — Koscso Media Engineering Kft., 2026',
   },
