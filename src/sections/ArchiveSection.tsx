@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'Közadat',
-    heading: 'Az archívum nem raktár: alap',
+    heading: 'Az archívum nem raktár: közadat',
     intro: 'A közmédia archívuma a közadat központi tartópillére. Metaadatolás, leiratozás, AI-támogatás: ez a jövő alapja.',
     layers: [
       {
@@ -36,7 +36,7 @@ const content = {
   },
   en: {
     label: 'Public data',
-    heading: "The archive isn't storage: it's the foundation",
+    heading: "The archive isn't storage: it's public data",
     intro: "Public media's archive is the central pillar of public data. Tagging, transcription, AI support: that's the foundation of the future.",
     layers: [
       {
