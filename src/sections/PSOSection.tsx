@@ -9,78 +9,78 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'Rendszerarchitektúra',
-    heading: 'A Public Service OS.',
+    heading: 'A Public Service OS',
     intro: 'Olyan rendszer, amely egyetlen, integrált platformként működteti a közszolgálati média összes funkcióját.',
     note:
-      'Ez a struktúra lehetővé teszi, hogy a felhasználó az archívum alapján saját, személyre szabott „csatornát" építhessen — mind videó-, mind audiótartalomból — az interaktív streaming platformon keresztül.',
+      'Ez a struktúra lehetővé teszi, hogy a felhasználó az archívum alapján saját, személyre szabott „csatornát" építhessen (mind videó-, mind audiótartalomból) az interaktív streaming platformon keresztül.',
     layers: [
       {
         icon: Globe,
         title: 'Alapinfrastruktúra',
-        description: 'Megbízható adatátviteli rendszerek, kiszolgálók, szerverek — mint egy modern háztartás villamos hálózata.',
+        description: 'Megbízható adatátviteli rendszerek, kiszolgálók, szerverek: mint egy modern háztartás villamos hálózata.',
         color: '#6B7280',
       },
       {
         icon: Cpu,
         title: 'Szolgáltatási réteg',
-        description: 'A rendszerszintű szoftvereszközök — az operációs rendszer, ami összekapcsolja az alkalmazásokat.',
+        description: 'A rendszerszintű szoftvereszközök: az operációs rendszer, ami összekapcsolja az alkalmazásokat.',
         color: '#C9A96E',
       },
       {
         icon: Smartphone,
         title: 'Alkalmazási réteg',
-        description: 'Streaming, szöveges tartalmak, digitális archívum, közösségi média — a felhasználói felületek.',
+        description: 'Streaming, szöveges tartalmak, digitális archívum, közösségi média: a felhasználói felületek.',
         color: '#C9A96E',
       },
       {
         icon: RadioIcon,
         title: 'Tartalmi réteg',
-        description: 'Hírek, dokumentumfilmek, szórakoztatás, sport, kultúra, oktatás — maga a tartalom.',
+        description: 'Hírek, dokumentumfilmek, szórakoztatás, sport, kultúra, oktatás: maga a tartalom.',
         color: '#C9A96E',
       },
       {
         icon: Layers,
         title: 'Közösségi réteg',
-        description: 'Párbeszéd és visszacsatolás a közönséggel — a transzparencia és az interakció tere.',
+        description: 'Párbeszéd és visszacsatolás a közönséggel: a transzparencia és az interakció tere.',
         color: '#6B7280',
       },
     ],
   },
   en: {
     label: 'System architecture',
-    heading: 'The Public Service OS.',
+    heading: 'The Public Service OS',
     intro: 'A system that runs every function of public service media as a single, integrated platform.',
     note:
-      "This structure lets users build their own personalised \"channel\" from the archive — combining both video and audio content — through the interactive streaming platform.",
+      "This structure lets users build their own personalised \"channel\" from the archive (combining both video and audio content) through the interactive streaming platform.",
     layers: [
       {
         icon: Globe,
         title: 'Base infrastructure',
-        description: 'Reliable data-transmission systems, hosts, servers — like a modern household\'s electrical grid.',
+        description: 'Reliable data-transmission systems, hosts, servers: like a modern household\'s electrical grid.',
         color: '#6B7280',
       },
       {
         icon: Cpu,
         title: 'Service layer',
-        description: 'System-level software tools — the operating system that connects the applications.',
+        description: 'System-level software tools: the operating system that connects the applications.',
         color: '#C9A96E',
       },
       {
         icon: Smartphone,
         title: 'Application layer',
-        description: 'Streaming, text content, digital archive, social media — the user-facing surfaces.',
+        description: 'Streaming, text content, digital archive, social media: the user-facing surfaces.',
         color: '#C9A96E',
       },
       {
         icon: RadioIcon,
         title: 'Content layer',
-        description: 'News, documentaries, entertainment, sport, culture, education — the content itself.',
+        description: 'News, documentaries, entertainment, sport, culture, education: the content itself.',
         color: '#C9A96E',
       },
       {
         icon: Layers,
         title: 'Community layer',
-        description: 'Dialogue and feedback with the audience — the space for transparency and interaction.',
+        description: 'Dialogue and feedback with the audience: the space for transparency and interaction.',
         color: '#6B7280',
       },
     ],

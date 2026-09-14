@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'A megoldás',
-    heading: 'Négy pillér, egy cél.',
+    heading: 'Négy pillér, egy cél',
     intro: 'A jövőálló közmédia nem a múlt restaurációja, hanem a jelen kihívásaira adott válasz.',
     pillars: [
       {
@@ -22,7 +22,7 @@ const content = {
           'A bürokratikus akadályok lebontása',
           'Automatizálás következetes alkalmazása',
           'Az archívum teljes feldolgozása és a tudásbázis kiépítése',
-          'A hibázás lehetőségének fenntartása — és az abból való tanulás',
+          'A hibázás lehetőségének fenntartása, és az abból való tanulás',
         ],
       },
       {
@@ -68,7 +68,7 @@ const content = {
   },
   en: {
     label: 'The solution',
-    heading: 'Four pillars, one goal.',
+    heading: 'Four pillars, one goal',
     intro: "Future-proof public media isn't a restoration of the past, but an answer to the present's challenges.",
     pillars: [
       {
@@ -81,7 +81,7 @@ const content = {
           'Dismantling bureaucratic obstacles',
           'Consistent application of automation',
           'Full processing of the archive and building a knowledge base',
-          'Preserving room to make mistakes — and to learn from them',
+          'Preserving room to make mistakes, and to learn from them',
         ],
       },
       {
@@ -102,7 +102,7 @@ const content = {
         title: 'Transparency',
         subtitle: 'Radical openness at every level',
         description:
-          "Future-proof public media doesn't just treat leadership meeting minutes and production/procurement contracts as public-interest data — it makes the logic of its recommendation algorithms public by default too.",
+          "Future-proof public media doesn't just treat leadership meeting minutes and production/procurement contracts as public-interest data: it makes the logic of its recommendation algorithms public by default too.",
         points: [
           'Leadership meeting minutes made public',
           'Production and procurement contracts made public',
@@ -115,7 +115,7 @@ const content = {
         title: 'Public data',
         subtitle: 'The archive as national common wealth',
         description:
-          "The archive is the central pillar of public data. Fully tagging, transcribing and exploring the entire audiovisual heritage doesn't just help public media's own work — it's also the technological foundation of Hungarian AI sovereignty and a future knowledge assistant.",
+          "The archive is the central pillar of public data. Fully tagging, transcribing and exploring the entire audiovisual heritage doesn't just help public media's own work: it's also the technological foundation of Hungarian AI sovereignty and a future knowledge assistant.",
         points: [
           'AI-assisted tagging of the entire audiovisual heritage',
           'Accessible not just to researchers and creators, but to every citizen',

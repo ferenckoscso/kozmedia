@@ -9,8 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'Közadat',
-    heading: 'Az archívum nem raktár — alap.',
-    intro: 'A közmédia archívuma a közadat központi tartópillére. Metaadatolás, leiratozás, AI-támogatás — ez a jövő alapja.',
+    heading: 'Az archívum nem raktár: alap',
+    intro: 'A közmédia archívuma a közadat központi tartópillére. Metaadatolás, leiratozás, AI-támogatás: ez a jövő alapja.',
     layers: [
       {
         icon: BookOpen,
@@ -30,14 +30,14 @@ const content = {
       {
         icon: Users,
         title: 'AI-szuverenitás',
-        description: 'A magyar mesterséges intelligencia szuverenitás technológiai alapja — nem külföldi platformokra támaszkodunk.',
+        description: 'A magyar mesterséges intelligencia szuverenitás technológiai alapja: nem külföldi platformokra támaszkodunk.',
       },
     ],
   },
   en: {
     label: 'Public data',
-    heading: "The archive isn't storage — it's the foundation.",
-    intro: "Public media's archive is the central pillar of public data. Tagging, transcription, AI support — that's the foundation of the future.",
+    heading: "The archive isn't storage: it's the foundation",
+    intro: "Public media's archive is the central pillar of public data. Tagging, transcription, AI support: that's the foundation of the future.",
     layers: [
       {
         icon: BookOpen,
@@ -57,7 +57,7 @@ const content = {
       {
         icon: Users,
         title: 'AI sovereignty',
-        description: "The technological foundation of Hungarian AI sovereignty — not reliant on foreign platforms.",
+        description: "The technological foundation of Hungarian AI sovereignty: not reliant on foreign platforms.",
       },
     ],
   },

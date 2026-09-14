@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'Három alapvető változás',
-    heading: 'Amitől minden korábbi stratégia elavulttá vált.',
+    heading: 'Amitől minden korábbi stratégia elavulttá vált',
     intro:
       'A médiaipar az elmúlt öt évben átesett egy olyan technológiai paradigmaváltáson, amely minden korábbi stratégiát elavulttá tesz.',
     more: 'Kattints a részletekért',
@@ -27,7 +27,7 @@ const content = {
         icon: Bot,
         title: 'A szintetikus tartalom kora',
         description:
-          'A generatív mesterséges intelligencia ma már havonta több milliárd képet és videót állít elő — olcsón, tömegesen, és egyre nehezebben megkülönböztethetően a valóditól. A mérések szerint a frissen létrehozott weboldalak több mint 70%-a már tartalmaz valamennyi AI-generált tartalmat, és egyes előrejelzések szerint az online tartalom akár 90%-a is szintetikus lehet a következő időszakban.',
+          'A generatív mesterséges intelligencia ma már havonta több milliárd képet és videót állít elő, olcsón, tömegesen, és egyre nehezebben megkülönböztethetően a valóditól. A mérések szerint a frissen létrehozott weboldalak több mint 70%-a már tartalmaz valamennyi AI-generált tartalmat, és egyes előrejelzések szerint az online tartalom akár 90%-a is szintetikus lehet a következő időszakban.',
         stat: '70%+',
         statLabel: 'új weboldal tartalmaz AI-generált tartalmat',
       },
@@ -35,7 +35,7 @@ const content = {
         icon: Radio,
         title: 'A hírfogyasztási szokások átalakulása',
         description:
-          'A különböző nemzedékek ma már teljesen eltérő módon tájékozódnak. Egy húszéves jó eséllyel soha életében nem kapcsol be lineáris tévéadást — ő a közösségi médiából, rövid videókból, és egyre inkább egy mesterségesintelligencia-alapú asszisztenstől tájékozódik. Ez nem ízléskülönbség: három egymás mellett élő nemzedék három különböző információs univerzumban mozog.',
+          'A különböző nemzedékek ma már teljesen eltérő módon tájékozódnak. Egy húszéves jó eséllyel soha életében nem kapcsol be lineáris tévéadást; ő a közösségi médiából, rövid videókból, és egyre inkább egy mesterségesintelligencia-alapú asszisztenstől tájékozódik. Ez nem ízléskülönbség: három egymás mellett élő nemzedék három különböző információs univerzumban mozog.',
         stat: '25 alatt',
         statLabel: 'a huszonöt év alattiak jelentős része már hetente chatbottól kér híreket',
       },
@@ -43,7 +43,7 @@ const content = {
   },
   en: {
     label: 'Three fundamental changes',
-    heading: 'What made every earlier strategy obsolete.',
+    heading: 'What made every earlier strategy obsolete',
     intro:
       'Over the past five years, the media industry has gone through a technological paradigm shift that renders every earlier strategy obsolete.',
     more: 'Click for details',
@@ -61,7 +61,7 @@ const content = {
         icon: Bot,
         title: 'The age of synthetic content',
         description:
-          'Generative AI now produces several billion images and videos every month — cheaply, at scale, and increasingly hard to tell apart from the real thing. Measurements show that more than 70% of newly created websites already contain some AI-generated content, and some forecasts put the share of synthetic online content as high as 90% in the coming period.',
+          'Generative AI now produces several billion images and videos every month, cheaply, at scale, and increasingly hard to tell apart from the real thing. Measurements show that more than 70% of newly created websites already contain some AI-generated content, and some forecasts put the share of synthetic online content as high as 90% in the coming period.',
         stat: '70%+',
         statLabel: 'of new websites contain AI-generated content',
       },
@@ -69,7 +69,7 @@ const content = {
         icon: Radio,
         title: 'The shift in news consumption habits',
         description:
-          "Different generations now get their information in entirely different ways. A twenty-year-old will quite possibly never once tune into linear TV in their life — they get their news from social media, short-form video, and increasingly from an AI-based assistant. This isn't a matter of taste: three generations living side by side move through three different information universes.",
+          "Different generations now get their information in entirely different ways. A twenty-year-old will quite possibly never once tune into linear TV in their life; they get their news from social media, short-form video, and increasingly from an AI-based assistant. This isn't a matter of taste: three generations living side by side move through three different information universes.",
         stat: 'Under 25',
         statLabel: 'a significant share already ask a chatbot for news weekly',
       },

@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'Mesterséges intelligencia',
-    heading: 'Ne tiltsuk — szabályozzuk.',
+    heading: 'Ne tiltsuk: szabályozzuk',
     intro: 'A háromsávos AI-felhasználási keretrendszer. A zöldek alkalmazhatók, a sárgák ellenőrzéssel, a pirosak soha.',
     more: 'Kattints a részletekért',
     less: 'Kattints a becsukáshoz',
@@ -19,14 +19,14 @@ const content = {
         icon: CheckCircle,
         title: 'Zöld sáv',
         items: ['Időjárás-vizualizáció', 'Sport-statisztika', 'Archív feliratozás', 'Akadálymentesítés'],
-        description: 'Mély AI-integráció. Az AI önállóan dolgozhat, ember csak szúrópróbaszerűen jóváhagy — de az eredetjelölés kötelező.',
+        description: 'Mély AI-integráció. Az AI önállóan dolgozhat, ember csak szúrópróbaszerűen jóváhagy, de az eredetjelölés kötelező.',
       },
       {
         color: 'yellow',
         icon: AlertCircle,
         title: 'Sárga sáv',
         items: ['Kulturális háttéranyag', 'Riport-kontextus', 'Műsorajánló szöveg', 'Interjú-előkészítés'],
-        description: 'Az AI minden lépésnél emberi jóváhagyással dolgozik. Az AI asszisztens, nem szerző — a végső szöveg emberé.',
+        description: 'Az AI minden lépésnél emberi jóváhagyással dolgozik. Az AI asszisztens, nem szerző: a végső szöveg emberé.',
       },
       {
         color: 'red',
@@ -39,7 +39,7 @@ const content = {
   },
   en: {
     label: 'Artificial intelligence',
-    heading: "Don't ban it — govern it.",
+    heading: "Don't ban it: govern it",
     intro: 'A three-zone framework for AI use. Green is free to use, yellow needs human review, red is never.',
     more: 'Click for details',
     less: 'Click to close',
@@ -49,14 +49,14 @@ const content = {
         icon: CheckCircle,
         title: 'Green zone',
         items: ['Weather visualisation', 'Sports statistics', 'Archive captioning', 'Accessibility'],
-        description: 'Deep AI integration. AI can work autonomously, with only spot-check human review — but disclosure of AI origin is mandatory.',
+        description: 'Deep AI integration. AI can work autonomously, with only spot-check human review, but disclosure of AI origin is mandatory.',
       },
       {
         color: 'yellow',
         icon: AlertCircle,
         title: 'Yellow zone',
         items: ['Cultural background material', 'Report context', 'Programme-guide text', 'Interview preparation'],
-        description: 'AI works with human sign-off at every step. AI is an assistant, not an author — the final text is always human.',
+        description: 'AI works with human sign-off at every step. AI is an assistant, not an author: the final text is always human.',
       },
       {
         color: 'red',

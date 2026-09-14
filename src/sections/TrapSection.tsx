@@ -9,14 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   hu: {
     label: 'Figyelmeztetés',
-    heading: 'A csapda, amibe ne essünk bele.',
-    intro: 'Nem elég tudni, mit kell tenni — tudni kell azt is, mi az, ami elronthatja.',
+    heading: 'A csapda',
+    intro: 'Nem elég tudni, mit kell tenni: tudni kell azt is, mi az, ami elronthatja.',
     traps: [
       {
         icon: XCircle,
         title: 'A nyilvánosság nem helyettesíti a minőségi vezetést',
         description:
-          'A transzparencia — éppúgy, mint az AI-alkalmazás — csak eszköz. A belső szervezeti kultúra, a szerkesztőségek szakmai autonómiája, a kollegialitás, a sokszínűség és a szerkesztői döntéshozatali mechanizmusok építése nélkül a transzparencia csupán egy másik csődbe juttató forma marad.',
+          'A transzparencia (éppúgy, mint az AI-alkalmazás) csak eszköz. A belső szervezeti kultúra, a szerkesztőségek szakmai autonómiája, a kollegialitás, a sokszínűség és a szerkesztői döntéshozatali mechanizmusok építése nélkül a transzparencia csupán egy másik csődbe juttató forma marad.',
       },
       {
         icon: BarChart3,
@@ -34,20 +34,20 @@ const content = {
         icon: TrendingDown,
         title: 'A régi modell utánzása',
         description:
-          'A magyar közmédia nem alakítható át reklámbevétel-orientált, kereskedelmi logika mentén működő szereplővé. A célközönség-konfliktus — a hirdetők preferált rétegei vs. a teljes társadalom — örökre elvenné a közmédia legitimitását.',
+          'A magyar közmédia nem alakítható át reklámbevétel-orientált, kereskedelmi logika mentén működő szereplővé. A célközönség-konfliktus (a hirdetők preferált rétegei vs. a teljes társadalom) örökre elvenné a közmédia legitimitását.',
       },
     ],
   },
   en: {
     label: 'A warning',
-    heading: "The trap not to fall into.",
-    intro: "It's not enough to know what to do — you also have to know what can ruin it.",
+    heading: "The trap",
+    intro: "It's not enough to know what to do: you also have to know what can ruin it.",
     traps: [
       {
         icon: XCircle,
         title: "Openness doesn't replace quality leadership",
         description:
-          "Transparency — just like AI adoption — is only a tool. Without building internal organisational culture, editorial professional autonomy, collegiality, diversity, and editorial decision-making mechanisms, transparency remains just another way to fail.",
+          "Transparency (just like AI adoption) is only a tool. Without building internal organisational culture, editorial professional autonomy, collegiality, diversity, and editorial decision-making mechanisms, transparency remains just another way to fail.",
       },
       {
         icon: BarChart3,
@@ -65,7 +65,7 @@ const content = {
         icon: TrendingDown,
         title: 'Copying the old model',
         description:
-          "Hungarian public media cannot be turned into an advertising-revenue-driven, commercial-logic actor. The target-audience conflict — advertisers' preferred segments vs. society as a whole — would permanently strip public media of its legitimacy.",
+          "Hungarian public media cannot be turned into an advertising-revenue-driven, commercial-logic actor. The target-audience conflict (advertisers' preferred segments vs. society as a whole) would permanently strip public media of its legitimacy.",
       },
     ],
   },
